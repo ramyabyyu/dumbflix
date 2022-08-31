@@ -1,0 +1,10 @@
+.jumbotron__img {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
+.watch__now-btn {
+  top: 350px;
+  left: 265px;
+}

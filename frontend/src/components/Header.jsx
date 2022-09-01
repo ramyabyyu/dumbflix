@@ -1,10 +1,17 @@
 import React from "react";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { useState } from "react";
+import { Navbar, Container, Nav, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import AuthModal from "./AuthModal";
 
 const Header = () => {
+  // Modal
+  const [show, setShow] = useState(false);
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+
   return (
-    <Navbar variant="dark" bg="dark" expand="lg">
+    <Navbar variant="dark" bg="dark" expand="lg" className="sticky-sm-top">
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -25,12 +32,10 @@ const Header = () => {
             </Link>
           </div>
           <Nav className="ms-auto">
-            <Link to="#" className="btn btn-light text-danger me-3">
-              Register
-            </Link>
-            <Link to="#" className="btn btn-danger">
-              Login
-            </Link>
+            <Button variant="danger" onClick={handleShow}>
+              Sign In
+            </Button>
+            <AuthModal show={show} handleClose={handleClose} />
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -1,6 +1,10 @@
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+// import React, { useState } from 'react';
+// import Button from 'react-bootstrap/Button';
+// import Form from 'react-bootstrap/Form';
+// import Modal from 'react-bootstrap/Modal';
 
 const Header = () => {
   return (
@@ -30,7 +34,9 @@ const Header = () => {
             </Link>
             <Link to="#" className="btn btn-danger">
               Login
+              
             </Link>
+            
           </Nav>
         </Navbar.Collapse>
       </Container>

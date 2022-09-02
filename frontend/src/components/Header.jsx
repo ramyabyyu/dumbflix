@@ -27,7 +27,8 @@ const Header = () => {
 
   useEffect(() => {
     if (user) setIsLogin(true);
-  }, [user]);
+    else setIsLogin(false);
+  }, [user, handleLogout]);
 
   return (
     <Navbar variant="dark" bg="dark" expand="lg" className="sticky-sm-top">

@@ -5,6 +5,7 @@ import NotFound from "./pages/NotFound";
 import Movies from "./pages/Movie";
 import Series from "./pages/TvSeries";
 import Profile from "./pages/Profile";
+import Detail from "./pages/Detail";
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
 
         {/* Profile Page */}
         <Route path="/profile" element={<Profile />} />
+
+        {/* Detail Page */}
+        <Route path="/detail" element={<Detail />} />
 
         {/* Not Found Page */}
         <Route path="*" element={<NotFound />} />

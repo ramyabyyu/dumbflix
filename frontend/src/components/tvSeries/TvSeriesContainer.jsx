@@ -12,26 +12,31 @@ const TvSeriesContainer = () => {
       tvSeriesImg: dummyTvSeriesImg,
       title: "Money Heist",
       year: 2022,
+      type: "Tv Series",
     },
     {
       tvSeriesImg: dummyTvSeriesImg,
       title: "Money Heist",
       year: 2022,
+      type: "Tv Series",
     },
     {
       tvSeriesImg: dummyTvSeriesImg,
       title: "Money Heist",
       year: 2022,
+      type: "Tv Series",
     },
     {
       tvSeriesImg: dummyTvSeriesImg,
       title: "Money Heist",
       year: 2022,
+      type: "Tv Series",
     },
     {
       tvSeriesImg: dummyTvSeriesImg,
       title: "Money Heist",
       year: 2022,
+      type: "Tv Series",
     },
   ]);
   return (

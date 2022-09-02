@@ -109,7 +109,9 @@ const AuthModal = ({ show, handleClose }) => {
               onChange={handleChange}
               name="gender"
             >
-              <option disabled>Gender</option>
+              <option disabled selected>
+                Gender
+              </option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
             </Form.Select>

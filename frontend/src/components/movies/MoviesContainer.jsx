@@ -1,8 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col, Container, Card } from "react-bootstrap";
 import dummyMovieImg from "../../assets/images/img2.webp";
 import MovieList from "./MovieList";
+import "../../assets/css/TvSeriesAndMovies.modules.css";
+import { FaArrowAltCircleRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const MoviesContainer = () => {
   const [movieLists, setMovieLists] = useState([
@@ -10,31 +13,31 @@ const MoviesContainer = () => {
       movieImg: dummyMovieImg,
       title: "Money Heist",
       year: 2022,
+      type: "Movie",
     },
     {
       movieImg: dummyMovieImg,
       title: "Money Heist",
       year: 2022,
+      type: "Movie",
     },
     {
       movieImg: dummyMovieImg,
       title: "Money Heist",
       year: 2022,
+      type: "Movie",
     },
     {
       movieImg: dummyMovieImg,
       title: "Money Heist",
       year: 2022,
+      type: "Movie",
     },
     {
       movieImg: dummyMovieImg,
       title: "Money Heist",
       year: 2022,
-    },
-    {
-      movieImg: dummyMovieImg,
-      title: "Money Heist",
-      year: 2022,
+      type: "Movie",
     },
   ]);
 
@@ -51,6 +54,18 @@ const MoviesContainer = () => {
             />
           </Col>
         ))}
+        <Col md={2}>
+          <Card className="rounded shadow border-0 bg-dark text-white d-flex justify-content-center align-items-center">
+            <Link
+              to="/movies"
+              className="text-decoration-none text-white see__more-link"
+            >
+              <p>
+                See More <FaArrowAltCircleRight />
+              </p>
+            </Link>
+          </Card>
+        </Col>
       </Row>
     </Container>
   );

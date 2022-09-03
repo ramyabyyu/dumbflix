@@ -42,7 +42,7 @@ const MoviesContainer = () => {
   ]);
 
   return (
-    <Container className="my-5 overflow-hidden" id="">
+    <Container className="my-5 overflow-hidden" id="movie">
       <h3 className="text-start text-white fw-bold mb-3">Movie</h3>
       <Row>
         {movieLists.map((movie, index) => (

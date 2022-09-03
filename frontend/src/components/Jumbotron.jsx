@@ -18,7 +18,9 @@ const Jumbotron = () => {
         </p>
         <div className="d-flex my-3 align-items-center">
           <p className="text-white fs-5 me-3 my-0">2019</p>
-          <button className="btn btn-outline-light">Tv Series</button>
+          <span className="border border-white rounded text-white px-2 py-1">
+            Tv Series
+          </span>
         </div>
         <div>
           <button className="btn btn-danger">WATCH NOW!</button>

@@ -13,6 +13,7 @@ import {
   FaRegMoneyBillAlt,
   FaUserCircle,
 } from "react-icons/fa";
+import { useRef } from "react";
 
 const initialUserState = {
   email: "",
@@ -34,6 +35,14 @@ const Profile = () => {
 
   const navigate = useNavigate();
 
+  // Image Upload
+  const [profileSrc, setProfileSrc] = useState(userData.photo);
+  const hiddenFileInput = useRef(null);
+  const handleFileInput = (e) => hiddenFileInput.current.click();
+  const handleFileChange = (files) => {
+    setUserData({ ...userData, photo: files });
+  };
+
   useEffect(() => {
     if (user) {
       setIsLogin(true);
@@ -52,6 +61,18 @@ const Profile = () => {
       navigate("/");
     }
   }, [user, isLogin]);
+
+  useEffect(() => {
+    // Image upload
+    if (userData.photo != noPeople) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        let result = reader.result;
+        setProfileSrc(result);
+      };
+      reader.readAsDataURL(userData.photo);
+    }
+  }, [userData.photo]);
 
   return (
     <Container>
@@ -117,10 +138,21 @@ const Profile = () => {
                 </div>
               </div>
               <div>
-                <img src={noPeople} alt="nophoto" />
+                <img src={profileSrc} alt="nophoto" className="profile__img" />
+
+                {/* Hidden Upload Input */}
+                <input
+                  type="file"
+                  ref={hiddenFileInput}
+                  accept="image/*"
+                  className="d-none"
+                  onChange={(e) => handleFileChange(e.target.files[0])}
+                />
+
                 <Button
                   variant="danger"
                   className="changePhotoBtn mt-2 btn-lg px-2 py-4"
+                  onClick={handleFileInput}
                 >
                   Change Photo
                 </Button>

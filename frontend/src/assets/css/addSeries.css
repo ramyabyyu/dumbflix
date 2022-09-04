@@ -1,0 +1,8 @@
+.addEpisode {
+    display: flex;
+}
+
+.title {
+    flex: 50%;
+    margin-right: 5px;
+}

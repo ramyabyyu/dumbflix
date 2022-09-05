@@ -37,8 +37,11 @@ const Profile = () => {
 
   // Image Upload
   const [profileSrc, setProfileSrc] = useState(userData.photo);
+
   const hiddenFileInput = useRef(null);
+
   const handleFileInput = (e) => hiddenFileInput.current.click();
+
   const handleFileChange = (files) => {
     setUserData({ ...userData, photo: files });
   };

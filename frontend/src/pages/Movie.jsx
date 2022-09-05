@@ -4,6 +4,7 @@ import Jumbotron from "../components/Jumbotron";
 import dummyMovieImg from "../assets/images/img2.webp";
 import MovieList from "../components/movies/MovieList";
 import { Col, Container, Row } from "react-bootstrap";
+import "../assets/css/TvSeriesAndMovies.modules.css";
 
 const Movies = () => {
   const [movieLists, setMovieLists] = useState([
@@ -72,7 +73,7 @@ const Movies = () => {
   return (
     <div>
       <Jumbotron />
-      <Container className="my-5 overflow-hidden">
+      <Container className="my-5 overflow-hidden" id="fullMovieList">
         <h3 className="text-start text-white fw-bold mb-3">Movie</h3>
         <Row>
           {movieLists.map((movie, index) => (

@@ -5,8 +5,9 @@ import "../assets/css/Jumbotron.modules.css";
 
 const Jumbotron = () => {
   return (
-    <div className="position-relative overflow-hidden">
+    <div className="position-relative overflow-hidden jumbotron__box-shadow">
       <img src={theWitcherImg} alt="the witcher" className="jumbotron__img" />
+      <div className="cool__box-shadow"></div>
       <div className="position-absolute d-flex flex-column jumbotron__text">
         <img src={theWitcher1} alt="the witcher 1" />
         <p className="text-white fs-3 m-0">

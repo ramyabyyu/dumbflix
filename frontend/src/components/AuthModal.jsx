@@ -14,6 +14,7 @@ const initialUserState = {
   address: "",
   photo: "no-people",
   status: "Active",
+  isAdmin: false,
 };
 
 const AuthModal = ({ show, handleClose }) => {
@@ -71,6 +72,7 @@ const AuthModal = ({ show, handleClose }) => {
           <div className="mb-3 pw__container">
             <Form.Group controlId="password">
               <Form.Control
+                name="password"
                 type={showPw ? "text" : "password"}
                 placeholder="Password"
                 className="bg-group"

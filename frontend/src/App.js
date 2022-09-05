@@ -6,6 +6,7 @@ import Movies from "./pages/Movie";
 import Series from "./pages/TvSeries";
 import Profile from "./pages/Profile";
 import Detail from "./pages/Detail";
+import Transactions from "./pages/Transactions";
 import Payment from "./pages/Payment";
 
 function App() {
@@ -27,6 +28,9 @@ function App() {
 
         {/* Detail Page */}
         <Route path="/detail" element={<Detail />} />
+
+        {/* Transactions Page */}
+        <Route path="/transactions" element={<Transactions />} />
 
         {/* Payment Page */}
         <Route path="/payment" element={<Payment />} />

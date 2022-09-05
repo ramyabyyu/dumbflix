@@ -3,6 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import Jumbotron from "../components/Jumbotron";
 import TvSeriesList from "../components/tvSeries/TvSeriesList";
 import dummyTvSeriesImg from "../assets/images/img2.webp";
+import "../assets/css/TvSeriesAndMovies.modules.css";
 
 const Series = () => {
   const [tvSeriesList, setTvSeriesList] = useState([
@@ -70,7 +71,7 @@ const Series = () => {
   return (
     <div>
       <Jumbotron />
-      <Container className="my-5 overflow-hidden">
+      <Container className="my-5 overflow-hidden" id="fullTvSeriesList">
         <h3 className="text-start text-white fw-bold mb-3">Tv Series</h3>
         <Row>
           {tvSeriesList.map((tv, index) => (

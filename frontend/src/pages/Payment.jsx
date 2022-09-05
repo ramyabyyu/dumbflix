@@ -1,117 +1,101 @@
-import { Col, Container, Row, Table } from "react-bootstrap";
-import { BsFillCaretDownFill } from "react-icons/bs";
+import React, { useRef } from "react";
+import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
+import "../assets/css/Payment.modules.css";
+import { FaPaperclip } from "react-icons/fa";
+import { useState } from "react";
+import { useEffect } from "react";
 
-function Payment() {
+const Payment = () => {
+  const hiddenFileInput = useRef(null);
+
+  const handleFileInput = (e) => hiddenFileInput.current.click();
+
+  const [transferImg, setTransferImg] = useState("");
+  const [transferImgSrc, setTransferImgSrc] = useState("");
+
+  useEffect(() => {
+    if (transferImg) {
+      const reader = new FileReader();
+
+      reader.onloadend = () => {
+        let result = reader.result;
+        document.getElementById("transfer-img").classList.remove("d-none");
+        setTransferImgSrc(result);
+      };
+
+      reader.readAsDataURL(transferImg);
+    }
+  }, [transferImg]);
+
   return (
-    <>
-      <Container className="mt-5">
-        <Row>
-          <Col md={12}>
-            <h6 className="text-light mb-4 mx-4">Incoming Transaction</h6>
-            <Table striped bordered hover variant="dark">
-              <thead style={{ height: "60px" }}>
-                <tr className="text-danger text-center align-items-center">
-                  <th>No</th>
-                  <th>Users</th>
-                  <th>Bukti Transfer</th>
-                  <th>Remaining Active</th>
-                  <th>Status User</th>
-                  <th>Status Payment</th>
-                  <th style={{ width: "60px" }}>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style={{ height: "60px" }} className="text-center">
-                  <td>1</td>
-                  <td>Radif Ganteng</td>
-                  <td>bca.jpg</td>
-                  <td>26 / Hari</td>
-                  <td className="text-success">Active</td>
-                  <td className="text-success">Approve</td>
-                  <td>
-                    <BsFillCaretDownFill
-                      style={{ marginLeft: "20px" }}
-                      className="text-primary"
-                    />
-                  </td>
-                </tr>
-                <tr style={{ height: "60px" }} className="text-center">
-                  <td>2</td>
-                  <td>Haris Rahman</td>
-                  <td>bni.jpg</td>
-                  <td>26 / Hari</td>
-                  <td className="text-success">Active</td>
-                  <td className="text-success">Approve</td>
-                  <td>
-                    <BsFillCaretDownFill
-                      style={{ marginLeft: "20px" }}
-                      className="text-primary"
-                    />
-                  </td>
-                </tr>
-                <tr style={{ height: "60px" }} className="text-center">
-                  <td>3</td>
-                  <td>Amin Subagiyo</td>
-                  <td>permata.jpg</td>
-                  <td>0 / Hari</td>
-                  <td className="text-danger">Not Active</td>
-                  <td className="text-danger">Cancel</td>
-                  <td>
-                    <BsFillCaretDownFill
-                      style={{ marginLeft: "20px" }}
-                      className="text-primary"
-                    />
-                  </td>
-                </tr>
-                <tr style={{ height: "60px" }} className="text-center">
-                  <td>4</td>
-                  <td>Haris Astina</td>
-                  <td>permata.jpg</td>
-                  <td>0 / Hari</td>
-                  <td className="text-danger">Not Active</td>
-                  <td className="text-warning">Pending</td>
-                  <td>
-                    <BsFillCaretDownFill
-                      style={{ marginLeft: "20px" }}
-                      className="text-primary"
-                    />
-                  </td>
-                </tr>
-                <tr style={{ height: "60px" }} className="text-center">
-                  <td>5</td>
-                  <td>Aziz Oni On</td>
-                  <td>bi.jpg</td>
-                  <td>0 / Hari</td>
-                  <td className="text-danger">Not Active</td>
-                  <td className="text-warning">Pending </td>
-                  <td>
-                    <BsFillCaretDownFill
-                      style={{ marginLeft: "20px" }}
-                      className="text-primary"
-                    />
-                  </td>
-                </tr>
-                <tr style={{ height: "60px" }} className="text-center">
-                  <td>6</td>
-                  <td>Sugeng No Pants</td>
-                  <td>bni.jpg</td>
-                  <td>0 / Hari</td>
-                  <td className="text-danger">Not Active</td>
-                  <td className="text-warning">Pending</td>
-                  <td>
-                    <BsFillCaretDownFill
-                      style={{ marginLeft: "20px" }}
-                      className="text-primary"
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            </Table>
-          </Col>
-        </Row>
-      </Container>
-    </>
+    <Container className="my-5">
+      <Row className="justify-content-center">
+        <Col md={8}>
+          <Card className="rounded shadow bg-dark text-white border-0">
+            <h3 className="text-center fw-bold mb-5">Premium</h3>
+            <p className=" p-0 text-center">
+              Bayar sekarang dan nikmati streaming film-film yang kekinian dari{" "}
+              <span className="fw-bold text-danger text-uppercase">
+                Dumbflix
+              </span>
+            </p>
+            <p className="m-0 p-0 fw-bold text-center">
+              <span className="fw-bold text-danger text-uppercase">
+                Dumbflix
+              </span>{" "}
+              : 08123123123
+            </p>
+            <Form className="mt-5 w-50 mx-auto">
+              <div className="mb-3">
+                <Form.Control
+                  className="input__payment bg-secondary"
+                  name="accountNumber"
+                  placeholder="Input your account number"
+                  type="text"
+                />
+              </div>
+              <div className={transferImg === "" ? "mb-5" : "mb-3"}>
+                <input
+                  type="file"
+                  className="d-none"
+                  accept="image/*"
+                  ref={hiddenFileInput}
+                  onChange={(e) => setTransferImg(e.target.files[0])}
+                />
+                <Button
+                  variant="light"
+                  className="d-flex text-danger justify-content-between w-100 fw-bold"
+                  onClick={handleFileInput}
+                >
+                  <span>Attache proof of transfer</span>
+                  <span>
+                    <FaPaperclip />
+                  </span>
+                </Button>
+              </div>
+              <div className="my-3">
+                <img
+                  src={transferImgSrc}
+                  alt=""
+                  className="transfer__img d-none"
+                  id="transfer-img"
+                />
+              </div>
+              <div>
+                <Button
+                  type="submit"
+                  variant="danger"
+                  className="w-100 fw-bold"
+                >
+                  Kirim
+                </Button>
+              </div>
+            </Form>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
-}
+};
 
 export default Payment;

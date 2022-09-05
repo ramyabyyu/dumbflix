@@ -6,7 +6,12 @@ import AuthModal from "./AuthModal";
 import dumbflixLogo from "../assets/images/dumbflix_logo.png";
 import { useEffect } from "react";
 import noPeople from "../assets/images/no-people.png";
-import { FaUserAlt, FaMoneyBillAlt, FaSignOutAlt } from "react-icons/fa";
+import {
+  FaUserAlt,
+  FaMoneyBillAlt,
+  FaSignOutAlt,
+  FaFilm,
+} from "react-icons/fa";
 
 const Header = () => {
   // Modal
@@ -67,9 +72,12 @@ const Header = () => {
                     <FaUserAlt className="text-danger me-2" />{" "}
                     <span>Profile</span>
                   </Dropdown.Item>
-                  <Dropdown.Item href="#">
+                  <Dropdown.Item href="/payment">
                     <FaMoneyBillAlt className="text-danger me-2" />{" "}
                     <span>Pay</span>
+                  </Dropdown.Item>
+                  <Dropdown.Item href="/movies">
+                    <FaFilm className="text-danger me-2" /> <span>Film</span>
                   </Dropdown.Item>
                   <Dropdown.Divider className="bg-secondary" />
                   <Dropdown.Item href="#" onClick={handleLogout}>

@@ -24,7 +24,7 @@ const Jumbotron = () => {
           </span>
         </div>
         <div>
-          <button className="btn btn-danger">WATCH NOW!</button>
+          <button className="btn btn-danger text-uppercase lh-base">Watch Now!</button>
         </div>
       </div>
     </div>

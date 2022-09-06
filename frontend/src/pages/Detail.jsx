@@ -34,15 +34,6 @@ const Detail = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
         ></iframe>
-        {/* <iframe
-          width="1000"
-          height="500"
-          src="https://www.youtube.com/embed/NVmD9iaNs6M?controls=0"
-          title="Penyu Madura"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe> */}
       </div>
 
       <Container className="my-5">

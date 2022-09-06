@@ -47,6 +47,9 @@ const AuthModal = ({ show, handleClose }) => {
     if (isRegister) {
       localStorage.setItem("user", JSON.stringify(userData));
       navigate("/");
+    } else {
+      localStorage.setItem("user", JSON.stringify(userData));
+      navigate("/");
     }
   };
 
